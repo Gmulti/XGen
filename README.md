@@ -56,4 +56,4 @@ try {
 
 ## About
 
-`xgen` is guided and supported by the Thomas Deneulin.
+`xgen` is guided and supported by Thomas Deneulin.
