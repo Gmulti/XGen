@@ -1,0 +1,20 @@
+{
+    "contexts": [
+        {
+            "text": "[[#visitor_team#name]] se déplace sans problème chez [[#home_team#name]]",
+            "dataSpecTest": [
+                [
+                    {
+                        "condition_test": "<",
+                        "right": 10,
+                        "left": "#match#position_difference"
+                    }
+                ]
+            ]
+        },
+        {
+            "text": "[[#home_team#name]] {reçoit|accueille} [[#visitor_team#name]]",
+            "dataSpecTest": []
+        }
+    ]
+}

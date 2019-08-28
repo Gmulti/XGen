@@ -1,0 +1,17 @@
+language: php
+
+env:
+  global:
+    - COMPOSER_UP="composer update --no-progress --no-suggest --ansi --prefer-dist"
+    - TEST_COMMAND="./vendor/bin/phpunit --bootstrap vendor/autoload.php tests"
+
+php:
+  - '7.2'
+  - '7.3'
+
+install:
+  - $COMPOSER_UP
+
+script:
+  - composer validate --no-check-lock
+  - $TEST_COMMAND

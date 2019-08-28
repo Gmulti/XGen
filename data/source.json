@@ -1,0 +1,14 @@
+{
+    "match": {
+        "round": 2,
+        "position_difference": 19
+    },
+    "home_team": {
+        "name": "Angers SCO",
+        "position": 20
+    },
+    "visitor_team": {
+        "name": "Olympique Lyonnais",
+        "position": 1
+    }
+  }
