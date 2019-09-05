@@ -51,7 +51,31 @@ try {
     
 } catch (\Exception $e) {
 }
+```
 
+### Load source from URL
+
+```php
+<?php
+
+require_once __DIR__ . '/sdk/vendor/autoload.php';
+
+use XGen\Client;
+use XGen\XGen;
+
+try {
+    $xgen = new XGen();
+    $xgen->addContextFromFile(__DIR__ . '/vendor/gmulti/xgen/data/context-1.json');
+    $xgen->addContextFromFile(__DIR__ . '/vendor/gmulti/xgen/data/context-2.json');
+    $xgen->addSourceFromUrlJson('https://apigenerator.gmulti.now.sh/v1/example-data/source');
+
+    $client = new Client('API_KEY');
+    $text = $client->getResource('generate')->postGenerateWithXGen($xgen);
+    var_dump($result);
+    // array (size=1)
+    //   'text' => string 'Dans le cadre de la 2ème journée, Angers SCO accueille Olympique Lyonnais' (length=75)
+} catch (\Exception $e) {
+}
 ```
 
 ## About

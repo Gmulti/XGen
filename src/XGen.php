@@ -4,11 +4,13 @@ namespace XGen;
 
 use XGen\Loaders\ContextFromFileJson;
 use XGen\Loaders\SourceFromFileJson;
+use XGen\Loaders\SourceFromUrlJson;
 
 class XGen
 {
     use ContextFromFileJson;
     use SourceFromFileJson;
+    use SourceFromUrlJson;
 
     protected $contexts = [];
 
@@ -20,20 +22,6 @@ class XGen
     public function addContext(array $context)
     {
         $this->contexts[] = $context;
-
-        return $this;
-    }
-
-    /**
-     * @param string $path
-     */
-    public function addContextFromFile(string $path)
-    {
-        $context = $this->loadContextFromFile($path);
-
-        if (null !== $context) {
-            $this->addContext($context);
-        }
 
         return $this;
     }
@@ -53,33 +41,19 @@ class XGen
         return $this;
     }
 
-    /**
-     * @param string $path
-     */
-    public function addSourceFromFile(string $path)
-    {
-        $source = $this->loadSourceFromFile($path);
-
-        if (null !== $source) {
-            $this->addSource($source);
-        }
-
-        return $this;
-    }
-
     public function getSource()
     {
         return $this->source;
     }
 
     /**
-     *
      * @return array
      */
-    public function getDataForEndpoint() : array {
+    public function getDataForEndpoint(): array
+    {
         return [
-            "settings" => $this->getContexts(),
-            "source" => $this->getSource(),
+            'settings' => $this->getContexts(),
+            'source'   => $this->getSource(),
         ];
     }
 }
